@@ -1,1 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Let’s Breathe, guided breathing and static apnea</title>
+<meta name="description" content="An iPhone and Apple Watch app: four-phase breathing timers and a static apnea stopwatch, with live heart rate from the Watch.">
+<link rel="alternate" hreflang="it" href="https://negri-matteo.github.io/LetsBreathe/">
+<link rel="alternate" hreflang="en" href="https://negri-matteo.github.io/LetsBreathe/en/">
+<link rel="alternate" hreflang="x-default" href="https://negri-matteo.github.io/LetsBreathe/">
+<link rel="icon" href="../assets/icon.png">
+<link rel="apple-touch-icon" href="../assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;700&family=Figtree:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
 
+<header class="nav">
+  <div class="container nav__in">
+    <a class="mark" href="./" aria-label="Let’s Breathe, top of the page"><img src="../assets/icon.png" alt="" width="32" height="32">let’s <b>breathe</b></a>
+    <ul>
+      <li><a href="#app">The app</a></li>
+      <li><a href="#safety">Safety</a></li>
+      <li><a href="#download">Download</a></li>
+      <li><a href="../" hreflang="it" lang="it">Italiano</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <canvas class="hero__sea" aria-hidden="true"></canvas>
+    <div class="container hero__grid">
+      <div>
+        <h1 id="hero-title" class="wordmark"><span>let’s</span> <b>breathe</b></h1>
+        <p class="lead"><span class="motto">Breathe, hold, improve.</span> Apnea with heart rate from Apple Watch.</p>
+        <div class="actions">
+          <a class="btn btn--primary" href="https://apps.apple.com/app/lets-breathe/id6837291782">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.1-1.2 2.9-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.4-4zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg>
+            Download on the App Store
+          </a>
+          <a class="btn" href="https://github.com/negri-matteo/LetsBreathe">Source code on GitHub</a>
+        </div>
+      </div>
+
+      <div class="phones" aria-label="Three screens from the app">
+        <figure class="phone phone--l"><img src="../Respira.jpg" width="600" height="1303" alt="Breathe screen with the Calm timer ready to start" fetchpriority="high"></figure>
+        <figure class="phone phone--r"><img src="../Storico.jpg" width="600" height="1303" alt="Session history with the best-time chart"></figure>
+        <figure class="phone phone--c"><img src="../Apnea.jpg" width="600" height="1303" alt="Apnea stopwatch with the time to beat and heart rate from Apple Watch" fetchpriority="high"></figure>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="app" aria-labelledby="app-title">
+    <div class="container">
+      <div class="head">
+        <h2 id="app-title">Four tabs, one breath</h2>
+        <p class="lead">Breathe, hold, see how it went.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="The app’s tabs">
+        <button role="tab" id="t-resp" aria-controls="p-resp" aria-selected="true">Breathe</button>
+        <button role="tab" id="t-apnea" aria-controls="p-apnea" aria-selected="false" tabindex="-1">Apnea</button>
+        <button role="tab" id="t-storico" aria-controls="p-storico" aria-selected="false" tabindex="-1">History</button>
+        <button role="tab" id="t-watch" aria-controls="p-watch" aria-selected="false" tabindex="-1">Apple Watch</button>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-resp" aria-labelledby="t-resp">
+        <div>
+          <h3>A circle that follows your breath</h3>
+          <ul class="facts">
+            <li>Five ready-made timers and five quick presets.</li>
+            <li>Each phase from 0 to 60 seconds, up to 30 cycles.</li>
+            <li>Sounds, beeps and vibration, each on its own switch.</li>
+          </ul>
+        </div>
+        <div class="shots">
+          <figure class="shot" data-slot="respira" data-kind="product"><img src="../Respira.jpg" width="600" height="1303" alt="Breathe screen with the circle ready to start" loading="lazy"></figure>
+          <figure class="shot" data-slot="nuovo-timer" data-kind="product"><img src="../Nuovo_Timer.jpg" width="600" height="1303" alt="Creating a timer with the length of each phase" loading="lazy"></figure>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-apnea" aria-labelledby="t-apnea">
+        <div>
+          <h3>One tap starts, one stops</h3>
+          <ul class="facts">
+            <li>Your previous attempt is the time to beat.</li>
+            <li>A sound or a vibration when you beat it.</li>
+            <li>Recovery timed between attempts.</li>
+          </ul>
+        </div>
+        <div class="shots">
+          <figure class="shot shot--video" data-kind="product">
+            <video controls playsinline preload="none" poster="../assets/lets-breathe-demo-poster.jpg" width="540" height="1168" aria-label="Screen recording of Let’s Breathe: safety warnings, breathing timer, apnea with heart rate from Apple Watch, history and info">
+              <source src="../assets/lets-breathe-demo.mp4" type="video/mp4">
+            </video>
+          </figure>
+          <figure class="shot" data-slot="recupero" data-kind="product"><img src="../Recupero.jpg" width="600" height="1303" alt="Recovery between two apnea attempts" loading="lazy"></figure>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-storico" aria-labelledby="t-storico">
+        <div>
+          <h3>Every session, attempt by attempt</h3>
+          <ul class="facts">
+            <li>Best time, heart rate and lowest SpO₂.</li>
+            <li>Charts of your progress over time.</li>
+            <li>CSV export for Excel and Numbers.</li>
+          </ul>
+        </div>
+        <div class="shots">
+          <figure class="shot" data-slot="storico" data-kind="product"><img src="../Storico.jpg" width="600" height="1303" alt="Session history with the progress chart" loading="lazy"></figure>
+          <figure class="shot" data-slot="sessione" data-kind="product"><img src="../Sessione.jpg" width="600" height="1303" alt="Session detail with times, heart rate and blood oxygen" loading="lazy"></figure>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-watch" aria-labelledby="t-watch">
+        <div>
+          <h3>Heart rate, from your wrist</h3>
+          <ul class="facts">
+            <li>Your iPhone opens the app on the Watch when you start.</li>
+            <li>Heart rate arrives in real time.</li>
+            <li>Nothing is left in Fitness when the session ends.</li>
+          </ul>
+        </div>
+        <div class="shots shots--watch">
+          <figure class="shot shot--watch" data-slot="watch-attesa" data-kind="product"><img src="../Watch_Attesa.jpg" width="416" height="496" alt="The app on Apple Watch waiting for the iPhone" loading="lazy"></figure>
+          <figure class="shot shot--watch" data-slot="watch-battito" data-kind="product"><img src="../Watch.jpg" width="416" height="496" alt="The app on Apple Watch reading heart rate" loading="lazy"></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section--l" aria-labelledby="modelli-title">
+    <div class="container">
+      <div class="head">
+        <h2 id="modelli-title">Five presets to start with</h2>
+        <p class="lead">Seconds per phase. Change them however you like.</p>
+      </div>
+      <div class="table-wrap" tabindex="0" role="region" aria-labelledby="modelli-title">
+        <table class="patterns">
+          <thead><tr><th scope="col">Preset</th><th scope="col">Inhale</th><th scope="col">Hold</th><th scope="col">Exhale</th><th scope="col">Hold</th></tr></thead>
+          <tbody>
+            <tr><td>Box<small>Calm and focus</small></td><td>4</td><td>4</td><td>4</td><td>4</td></tr>
+            <tr><td>4-7-8<small>Before sleep</small></td><td>4</td><td>7</td><td>8</td><td class="zero">0</td></tr>
+            <tr><td>Coherent<small>Balance</small></td><td>5</td><td class="zero">0</td><td>5</td><td class="zero">0</td></tr>
+            <tr><td>Diaphragmatic<small>Stress relief</small></td><td>4</td><td class="zero">0</td><td>6</td><td class="zero">0</td></tr>
+            <tr><td>Triangle<small>Concentration</small></td><td>4</td><td>4</td><td>4</td><td class="zero">0</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section--l" id="safety" aria-labelledby="safety-title">
+    <div class="container safety">
+      <figure class="photo" data-slot="freediver" data-alt="A freediver rising toward the light at the surface">
+        <img src="../assets/freediver.jpg" width="2400" height="1029" alt="A freediver rising toward the light at the surface" loading="lazy">
+      </figure>
+      <div>
+        <h2 id="safety-title">Never in the water alone</h2>
+        <ol>
+          <li><span><strong>Safety first.</strong> You can black out without warning.</span></li>
+          <li><span><strong>Never alone.</strong> Someone nearby who knows what you are doing.</span></li>
+          <li><span><strong>Seated or lying down.</strong> Never standing or driving.</span></li>
+          <li><span><strong>No hyperventilating</strong> before a hold.</span></li>
+        </ol>
+        <p class="note">Not a medical device: heart rate and SpO₂ are for personal wellness only.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="privacy-title">
+    <div class="container">
+      <h2 class="statement" id="privacy-title">Everything stays on your iPhone.</h2>
+      <div class="band__foot">
+        <p>No server, no account, no ads. Health data is only read, never changed.</p>
+        <a href="../privacy" hreflang="it">Read the privacy policy (Italian)</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section--l" id="download" aria-labelledby="download-title">
+    <div class="container close">
+      <div>
+        <h2 id="download-title">Your next breath, whenever you like</h2>
+        <dl class="needs">
+          <dt>iPhone</dt><dd>iOS 18.5 or later</dd>
+          <dt>Apple Watch</dt><dd>watchOS 26, optional, for heart rate</dd>
+          <dt>Languages</dt><dd>English and Italian, with VoiceOver</dd>
+        </dl>
+        <div class="actions">
+          <a class="btn btn--primary" href="https://apps.apple.com/app/lets-breathe/id6837291782">Download on the App Store</a>
+          <a class="btn" href="https://github.com/negri-matteo/LetsBreathe">Source code on GitHub</a>
+        </div>
+      </div>
+      <figure class="shot close__shot" data-slot="timer" data-kind="product"><img src="../Timer.jpg" width="600" height="1303" alt="List of saved breathing timers" loading="lazy"></figure>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="container">
+    <div class="foot__grid">
+      <p class="signoff">Bug reports and ideas to <a href="mailto:silentmat@proton.me">silentmat@proton.me</a>.</p>
+      <ul>
+        <li><a href="../privacy" hreflang="it">Privacy policy (Italian)</a></li>
+        <li><a href="../termini" hreflang="it">Terms of service (Italian)</a></li>
+        <li><a href="https://github.com/negri-matteo/LetsBreathe">Source code</a></li>
+      </ul>
+    </div>
+    <p class="legal">© 2026 Matteo Negri, MIT licence. Apple Watch and iPhone are trademarks of Apple Inc.</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  /* the sea: light falling from the surface, drawn once */
+  const cv = document.querySelector('.hero__sea');
+  const draw = () => {
+    const r = cv.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2);
+    cv.width = r.width * d; cv.height = r.height * d;
+    const c = cv.getContext('2d'), css = getComputedStyle(document.documentElement);
+    const shaft = css.getPropertyValue('--color-shaft').trim(), mote = css.getPropertyValue('--color-mote').trim();
+    c.scale(d, d);
+    const sky = c.createLinearGradient(0, 0, 0, r.height);
+    sky.addColorStop(0, css.getPropertyValue('--color-sky').trim()); sky.addColorStop(0.7, css.getPropertyValue('--color-paper').trim());
+    c.fillStyle = sky; c.fillRect(0, 0, r.width, r.height);
+    let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+    const ox = r.width * 0.62;
+    c.globalCompositeOperation = 'lighter';
+    c.filter = 'blur(14px)';
+    for (let i = 0; i < 22; i++) {
+      const a = (rnd() - 0.5) * 0.9, w = 10 + rnd() * 46, len = r.height * (0.7 + rnd() * 0.6);
+      c.save(); c.translate(ox + (rnd() - 0.5) * 220, -120); c.rotate(a);
+      const g = c.createLinearGradient(0, 0, 0, len);
+      g.addColorStop(0, shaft); g.addColorStop(1, 'transparent');
+      c.fillStyle = g; c.beginPath(); c.moveTo(-w * 0.3, 0); c.lineTo(w * 0.3, 0); c.lineTo(w, len); c.lineTo(-w, len); c.closePath(); c.fill(); c.restore();
+    }
+    c.filter = 'none';
+    c.globalCompositeOperation = 'source-over';
+    c.fillStyle = mote;
+    for (let i = 0; i < 140; i++) { const x = rnd() * r.width, y = rnd() * r.height, s = rnd() * 1.4; c.globalAlpha = 0.2 + rnd() * 0.6; c.beginPath(); c.arc(x, y, s, 0, 6.3); c.fill(); }
+  };
+  draw(); let t; addEventListener('resize', () => { clearTimeout(t); t = setTimeout(draw, 150); });
+
+  /* the switcher */
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  const pick = (t, focus) => { tabs.forEach((b) => { const on = b === t; b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; document.getElementById(b.getAttribute('aria-controls')).hidden = !on; }); if (focus) t.focus(); };
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => pick(t));
+    t.addEventListener('keydown', (e) => { const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (d) { e.preventDefault(); pick(tabs[(i + d + tabs.length) % tabs.length], true); } });
+  });
+  pick(tabs[0]);
+})();
+</script>
+</body>
+</html>
